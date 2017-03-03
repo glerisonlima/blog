@@ -23,7 +23,7 @@
 			<br>
 			<div>
 				<form:label path="biografia" >Biofrafia</form:label><br>
-				<form:input path="biografia" type="text" required="true"/>
+				<form:textarea path="biografia" cols="50" rows="10" required="true"/>
 			</div>	
 			<div>
 				<input type="submit" value="Salvar">

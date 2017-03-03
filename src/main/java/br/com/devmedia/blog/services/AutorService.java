@@ -19,7 +19,11 @@ public class AutorService {
 	
 	@Transactional(readOnly=false)
 	public void save(Autor autor){
-		autorRepository.save(autor);
+		if(autor.getId()==null){
+			autorRepository.save(autor);
+		}else{
+			autorRepository.updateNomeAndBiografia(autor.getNome(), autor.getBiografia(), autor.getId());
+		}
 	}
 	
 	public Autor findById(Long id){
@@ -32,5 +36,11 @@ public class AutorService {
 	
 	public List<Autor> findAll(){
 		return autorRepository.findAll();
+	}
+
+	@Transactional(readOnly = false)
+	public void delete(Long id) {
+		autorRepository.delete(id);
+		
 	}
 }
